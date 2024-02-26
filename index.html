@@ -8,8 +8,91 @@
     <link rel="icon" href="imgs/loup.jpg">
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <a href="#accueil">Accueil</a>
+                <a href="#apropos">À propos</a>
+                <a href="#competences">Compétences</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </ul>
+        </nav>
+    </header>
+    <section class="accueil">
 
+    </section>
 
+    <section class="apropos">
+        <div class="card-container">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="face">
+                        <div class="images">
+                            <img src="imgs/loup.jpg" alt="Travel Image">
+                        </div>
+                        <p>Travel in my world</p>
+                        <button class="btn" onclick="flipCard(this)">Continue...</button>
+                    </div>
+                    <div class="face back">
+                        <div class="texte">
+                            <p>Behind the card text</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="btn" onclick="flipCard(this)"> <- retour </button>
+                            <button class="btn" onclick="redirectToAnotherPage2()">Go to Another Page</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <div class="card">
+                <div class="card-inner">
+                    <div class="face">
+                        <div class="images">
+                            <img src="your-image-url.jpg" alt="Travel Image">
+                        </div>
+                        <p>Travel in my world</p>
+                        <button class="btn" onclick="flipCard(this)">Continue...</button>
+                    </div>
+                    <div class="face back">
+                        <div class="texte">
+                            <p>Behind the card text</p>
+                        </div>
+                        <div class="buttons">
+                            <button class="btn" onclick="flipCard(this)"> <- retour </button>
+                            <button class="btn" onclick="redirectToAnotherPage2()">Go to Another Page</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script>
+    var currentCard = 0; // Variable pour suivre la carte actuelle
+
+    function flipCard(button) {
+        var cardInner = button.closest('.card-inner');
+        if (currentCard === 0) {
+            cardInner.style.transform = 'rotateY(180deg)';
+            currentCard = 1; // On passe à la deuxième face
+        } else {
+            cardInner.style.transform = 'rotateY(0deg)';
+            currentCard = 0; // On retourne à la première face
+        }
+    }
+
+    function redirectToAnotherPage1() {
+        // Replace the following line with the actual URL you want to redirect to
+        window.location.href = 'https://example.com';
+    }
+
+    function redirectToAnotherPage2() {
+        // Replace the following line with the actual URL you want to redirect to
+        window.location.href = 'https://example.com';
+    }
+</script>
+    
 </body>
 </html>

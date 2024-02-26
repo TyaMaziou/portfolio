@@ -19,49 +19,65 @@
             </ul>
         </nav>
     </header>
-    <section class="accueil">
+
+    <section class="accueil" id="accueil">
+
+        <h1>My
+            <span
+               class="txt-rotate"
+               data-period="2000"
+               data-rotate='[ "Portfolio ...", "Projects ...", "Arts ...", "Adventures ..." ]'>
+            </span>
+        </h1>
 
     </section>
-
-    <section class="apropos">
-        <div class="card-container">
-            <div class="card">
-                <div class="card-inner">
-                    <div class="face">
-                        <div class="images">
-                            <img src="imgs/loup.jpg" alt="Travel Image">
+    
+    <section class="apropos" id="apropos">
+        <div class="container">
+            <h1>Qui suis-je ?</h1>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="face">
+                            <div class="images">
+                                <img src="imgs/loup.jpg" alt="Travel Image">
+                            </div>
+                            <p>Travel in my world</p>
+                            <button class="btn" onclick="flipCard(this)">Continue...</button>
                         </div>
-                        <p>Travel in my world</p>
-                        <button class="btn" onclick="flipCard(this)">Continue...</button>
-                    </div>
-                    <div class="face back">
-                        <div class="texte">
-                            <p>Behind the card text</p>
-                        </div>
-                        <div class="buttons">
-                            <button class="btn" onclick="flipCard(this)"> <- retour </button>
-                            <button class="btn" onclick="redirectToAnotherPage2()">Go to Another Page</button>
+                        <div class="face back">
+                            <div class="texte">
+                                <p>Behind the card text</p>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn" onclick="flipCard(this)"> <- retour </button>
+                                <button class="btn" onclick="redirectToAnotherPage2()">Go to Another Page</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card">
-                <div class="card-inner">
-                    <div class="face">
-                        <div class="images">
-                            <img src="your-image-url.jpg" alt="Travel Image">
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="face">
+                            <div class="images">
+                                <img src="your-image-url.jpg" alt="Travel Image">
+                            </div>
+                            <p>Travel in my world</p>
+                            <button class="btn" onclick="flipCard(this)">Continue...</button>
                         </div>
-                        <p>Travel in my world</p>
-                        <button class="btn" onclick="flipCard(this)">Continue...</button>
-                    </div>
-                    <div class="face back">
-                        <div class="texte">
-                            <p>Behind the card text</p>
-                        </div>
-                        <div class="buttons">
-                            <button class="btn" onclick="flipCard(this)"> <- retour </button>
-                            <button class="btn" onclick="redirectToAnotherPage2()">Go to Another Page</button>
+                        <div class="face back">
+                            <div class="texte">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum enim libero praesentium, explicabo, maiores recusandae molestias, nostrum nemo suscipit eum in. Harum velit cum quidem, fugit exercitationem beatae illo veniam.
+                                    <br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente dignissimos laborum nesciunt veniam voluptas, sequi fuga sunt suscipit dolor tempore ab praesentium minima voluptatibus saepe? Blanditiis aliquid molestias velit repellat?
+                                    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi tempora id similique fugit ut omnis facilis distinctio corrupti, reiciendis, ipsam quis aliquam rerum non perspiciatis accusantium reprehenderit, officiis doloremque tenetur.
+
+                                </p>
+                            </div>
+                            <div class="buttons">
+                                <button class="btn" onclick="flipCard(this)"> <- retour </button>
+                                <button class="btn" onclick="redirectToAnotherPage2()">Go to Another Page</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -69,7 +85,75 @@
         </div>
     </section>
 
+    <section class="skills" id="Compétences">
+        
+    </section>
+
 <script>
+
+// accueil
+
+var TxtRotate = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+    };
+
+TxtRotate.prototype.tick = function() {
+  var i = this.loopNum % this.toRotate.length;
+  var fullTxt = this.toRotate[i];
+
+  if (this.isDeleting) {
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
+  } else {
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
+  }
+
+  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+  var that = this;
+  var delta = 300 - Math.random() * 100;
+
+  if (this.isDeleting) { delta /= 2; }
+
+  if (!this.isDeleting && this.txt === fullTxt) {
+    delta = this.period;
+    this.isDeleting = true;
+  } else if (this.isDeleting && this.txt === '') {
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
+  }
+
+  setTimeout(function() {
+    that.tick();
+  }, delta);
+};
+
+window.onload = function() {
+  var elements = document.getElementsByClassName('txt-rotate');
+  for (var i=0; i<elements.length; i++) {
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
+  }
+  // INJECT CSS
+  var css = document.createElement("style");
+  css.type = "text/css";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+  document.body.appendChild(css);
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQSxNQUFBOztFQUFBLENBQUEsQ0FBRSxRQUFGLENBQVcsQ0FBQyxLQUFaLENBQWtCLFFBQUEsQ0FBQSxDQUFBO1dBQ2hCLEdBQUcsQ0FBQyxJQUFKLENBQUE7RUFEZ0IsQ0FBbEI7O0VBR0EsR0FBQSxHQUNFO0lBQUEsSUFBQSxFQUFNLG9DQUFOO0lBQ0EsS0FBQSxFQUFPLENBRFA7SUFFQSxLQUFBLEVBQU8sQ0FGUDtJQUdBLEtBQUEsRUFBTyxHQUhQO0lBSUEsU0FBQSxFQUFXLGdCQUpYO0lBTUEsSUFBQSxFQUFNLFFBQUEsQ0FBQSxDQUFBO01BQ0osSUFBQyxDQUFBLEtBQUQsR0FBUyxJQUFDLENBQUEsSUFBSSxDQUFDO2FBQ2YsSUFBQyxDQUFBLEtBQUQsQ0FBQTtJQUZJLENBTk47SUFVQSxLQUFBLEVBQU8sUUFBQSxDQUFBLENBQUE7TUFDTCxDQUFBLENBQUUsSUFBQyxDQUFBLFNBQUgsQ0FBYSxDQUFDLE1BQWQsQ0FBcUIsSUFBQyxDQUFBLElBQUksQ0FBQyxJQUFDLENBQUEsS0FBRixDQUExQjtNQUNBLElBQUcsSUFBQyxDQUFBLEtBQUQsR0FBUyxJQUFDLENBQUEsS0FBYjtRQUNFLElBQUMsQ0FBQSxLQUFEO2VBQ0EsTUFBTSxDQUFDLFVBQVAsQ0FBa0IsUUFBQSxDQUFBLENBQUE7aUJBQ2hCLEdBQUcsQ0FBQyxLQUFKLENBQUE7UUFEZ0IsQ0FBbEIsRUFFRSxJQUFDLENBQUEsS0FGSCxFQUZGOztJQUZLO0VBVlA7QUFKRiIsInNvdXJjZXNDb250ZW50IjpbIiQoZG9jdW1lbnQpLnJlYWR5IC0+XG4gIGFwcC5pbml0KClcbiAgXG5hcHAgPVxuICB0ZXh0OiBcIkhlbGxvIHN0cmFuZ2VyLiBIb3cgYXJlIHlvdSBkb2luZz9cIlxuICBpbmRleDogMFxuICBjaGFyczogMFxuICBzcGVlZDogMTAwXG4gIGNvbnRhaW5lcjogXCIudGV4dCAuY29udGVudFwiXG4gIFxuICBpbml0OiAtPlxuICAgIEBjaGFycyA9IEB0ZXh0Lmxlbmd0aFxuICAgIEB3cml0ZSgpXG4gICAgXG4gIHdyaXRlOiAtPlxuICAgICQoQGNvbnRhaW5lcikuYXBwZW5kIEB0ZXh0W0BpbmRleF1cbiAgICBpZiBAaW5kZXggPCBAY2hhcnNcbiAgICAgIEBpbmRleCsrXG4gICAgICB3aW5kb3cuc2V0VGltZW91dCAtPlxuICAgICAgICBhcHAud3JpdGUoKVxuICAgICAgLCBAc3BlZWQiXX0=
+//# sourceURL=coffeescript
+
+// a propos
+
     var currentCard = 0; // Variable pour suivre la carte actuelle
 
     function flipCard(button) {
@@ -92,6 +176,7 @@
         // Replace the following line with the actual URL you want to redirect to
         window.location.href = 'https://example.com';
     }
+
 </script>
     
 </body>

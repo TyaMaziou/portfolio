@@ -1,3 +1,19 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+  .section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+  }
+
+  .section:focus {
+    scroll-snap-stop: always;
+  }
+
 body {
     background-image: url('imgs/fond\ ecran\ galaxie.png');
     background-repeat: no-repeat;
@@ -5,6 +21,13 @@ body {
     background-size: cover;
 }
 
+h1{
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6rem;
+}
 
 /* header */
 
@@ -24,7 +47,26 @@ header a{
    font-size: 2rem;
    padding: 1rem;
 }
+/* accueil */
 
+.accueil{
+    margin-top: 15rem;
+    margin-bottom: 25rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.accueil h1 { 
+    font-size: 6rem; 
+    color: #ffffff;
+}
+
+.accueil  h2 {
+    color: #ffffff;
+    font-size: 2em;
+}
+  
 /* cartes */
 
 .images{
@@ -40,6 +82,18 @@ header a{
     height: 380px;
 }
 
+.texte{
+    border: 3px solid black;
+    border-radius: 25px;
+    width: 450px;
+    height: 430px;
+}
+
+.texte p{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
 #apropos{
     display: flex;
     justify-content: center;
@@ -49,7 +103,7 @@ header a{
 }
 
 .card-container {
-    margin-top: 4rem;
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     width: 100%;

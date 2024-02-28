@@ -2,18 +2,6 @@ html {
     scroll-behavior: smooth;
   }
 
-.section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    scroll-snap-align: start;
-}
-
-.section:focus {
-scroll-snap-stop: always;
-}
-
 body {
     background-image: url('imgs/fond\ ecran\ galaxie.png');
     background-repeat: no-repeat;
@@ -35,12 +23,8 @@ h1{
     align-items: center;
     height: 100vh;
     margin: 0;
-
 }
 
-section{
-    margin-top: 5rem;
-}
 
 /* header */
 
@@ -66,6 +50,7 @@ header a{
    padding: 1rem;
    
 }
+
 /* accueil */
 
 .accueil{
@@ -150,7 +135,7 @@ header a{
     align-items: center;
     border: 3px solid black;
     border-radius: 25px;
-    background-color: white;
+    background-color: rgba(220, 220, 220, 0.926);
 }
 
 .back {
@@ -176,13 +161,16 @@ header a{
     border-radius: 25px;
     width: 350px;
     height: 580px;
+    
 }
+
 
 .images-skill img{
     border-radius: 20px;
     width: 350px;
     height: 580px;
-    filter: blur(2px);
+    filter: brightness(50%);
+
 }
 
 .cardskill{
@@ -199,4 +187,142 @@ header a{
     transition: transform 0.5s;
 }
 
+.images-skill .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+
 /* skills dev */
+
+/* portfolio */
+
+.portfolio{
+    padding-top: 30rem;
+}
+
+.images-portfolio{
+    border: 3px solid black;
+    border-radius: 25px;
+    width: 330px;
+    height: 330px;
+}
+
+.images-portfolio img{
+    border-radius: 20px;
+    width: 330px;
+    height: 330px;
+    filter: brightness(50%);
+}
+
+.cardportfolio{
+    perspective: 1000px;
+    margin-left: 5rem;
+    width: 380px;
+    height: 400px;
+}
+
+.card-inner-portfolio{
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.images-portfolio .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+
+
+/* footer */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1100px;
+  }
+  
+  .footer-content p {
+    margin: 0;
+  }
+  
+  .footer-content ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .footer-content li {
+    margin: 0 10px;
+  }
+  
+  .footer-content a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      flex-direction: column;
+    }
+    
+    .footer-content ul {
+      margin-top: 10px;
+    }
+  }
+
+  /* vers le haut btn */
+  
+  #back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: rgba(220, 220, 220, 0.926);
+    color: #000000;
+    padding:  1rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  #back-to-top svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  /* Afficher le bouton lorsque l'utilisateur fait défiler la page */
+  body:not(.home) #back-to-top,
+  body.home.scrolled #back-to-top {
+    opacity: 1;
+  }

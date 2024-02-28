@@ -33,11 +33,9 @@
         </h1>
 
     </section>
-    
+
     <section class="apropos" id="apropos">
         <div class="container">
-            <h1>Qui suis-je ?</h1>
-            <br><br><br>
             <div class="card-container">
                 <div class="card">
                     <div class="card-inner">
@@ -107,18 +105,17 @@
             </div>
         </div>
     </section>
-    <br><br><br><br><br><br>
 
     <section class="skills" id="Competences">
         <div class="container">
             <h1>Compétences</h1>
-            <br><br><br>
             <div class="card-container">
                 <div class="cardskill">
                     <div class="card-inner-skill">
                         <div class="face">
                             <div class="images-skill">
-                            <img src="imgs/dev.jpg" alt="Skill 1">
+                            <img src="imgs/dev.jpg" alt="Skill 1"> 
+                            <div class="text-overlay">Développement Web</div>
                             </div>
                             <a href="skilldev.html"><button class="btn" >Découvrir</button></a>
                         </div>
@@ -129,6 +126,7 @@
                         <div class="face">
                             <div class="images-skill">
                             <img src="imgs/design.jpg" alt="Skill 2">
+                            <div class="text-overlay">Design</div>
                             </div>
                             <a href="skilldesign.html"><button class="btn" >Découvrir</button></a>
                         </div>
@@ -139,6 +137,7 @@
                         <div class="face">
                             <div class="images-skill">
                             <img src="imgs/oraga.jpg" alt="Skill 3">
+                            <div class="text-overlay">Autres</div>
                             </div>
                             <a href="skillautre.html"><button class="btn" >Découvrir</button></a>
                         </div>
@@ -148,9 +147,101 @@
         </div>
     </section>
 
-    <section class="portfolio" >
-    <h1 id="portfolio">portfolio</h1>
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <h1>Portfolio</h1>
+            <div class="card-container">
+                <div class="cardportfolio">
+                    <div class="card-inner-portfolio">
+                        <div class="face">
+                            <div class="images-portfolio">
+                            <img src="imgs/dev.jpg" alt="portfolio 1"> 
+                            <div class="text-overlay">Développement Web</div>
+                            </div>
+                            <a href=""><button class="btn" >Découvrir</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardportfolio">
+                    <div class="card-inner-portfolio">
+                        <div class="face">
+                            <div class="images-portfolio">
+                            <img src="imgs/design.jpg" alt="portfolio 2">
+                            <div class="text-overlay">Design</div>
+                            </div>
+                            <a href=""><button class="btn" >Découvrir</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardportfolio">
+                    <div class="card-inner-portfolio">
+                        <div class="face">
+                            <div class="images-portfolio">
+                            <img src="imgs/oraga.jpg" alt="portfolio 3">
+                            <div class="text-overlay">Autres</div>
+                            </div>
+                            <a href=""><button class="btn" >Découvrir</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="cardportfolio">
+                    <div class="card-inner-portfolio">
+                        <div class="face">
+                            <div class="images-portfolio">
+                            <img src="imgs/dev.jpg" alt="portfolio 1"> 
+                            <div class="text-overlay">Développement Web</div>
+                            </div>
+                            <a href=""><button class="btn" >Découvrir</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardportfolio">
+                    <div class="card-inner-portfolio">
+                        <div class="face">
+                            <div class="images-portfolio">
+                            <img src="imgs/design.jpg" alt="portfolio 2">
+                            <div class="text-overlay">Design</div>
+                            </div>
+                            <a href=""><button class="btn" >Découvrir</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardportfolio">
+                    <div class="card-inner-portfolio">
+                        <div class="face">
+                            <div class="images-portfolio">
+                            <img src="imgs/oraga.jpg" alt="portfolio 3">
+                            <div class="text-overlay">Autres</div>
+                            </div>
+                            <a href=""><button class="btn" >Découvrir</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </section>
+
+
+    <!-- <footer>
+        <div class="footer-content">
+          <p>&copy; 2023 Tya Maziere. All rights reserved.</p>
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Compétences</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </footer> -->
+
+      <button id="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+      </button>
 
 <script>
 
@@ -239,6 +330,31 @@ window.onload = function() {
         // Replace the following line with the actual URL you want to redirect to
         window.location.href = 'https://example.com';
     }
+
+
+
+    // vers le haut
+
+// Cache le bouton lorsque la page se charge
+document.getElementById("back-to-top").style.display = "none";
+
+// Affiche le bouton lorsque l'utilisateur fait défiler la page
+window.addEventListener("scroll", function () {
+  if (window.pageYOffset > 200) {
+    document.getElementById("back-to-top").style.display = "flex";
+  } else {
+    document.getElementById("back-to-top").style.display = "none";
+  }
+});
+
+// Scroll vers le haut de la page lorsque l'utilisateur clique sur le bouton
+document.getElementById("back-to-top").addEventListener("click", function (e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});
 
 </script>
     

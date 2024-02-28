@@ -204,7 +204,7 @@ header a{
 /* portfolio */
 
 .portfolio{
-    padding-top: 30rem;
+    padding-top: 18rem;
 }
 
 .images-portfolio{
@@ -247,54 +247,87 @@ header a{
     width: 100%;
   }
 
+  /* contact */
+  .swal-button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 24px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.swal-button:not([disabled]):hover {
+    background-color: #fff;
+    color: #000;
+    border: 3px solid black;
+}
+
+  .contact-form{
+    max-width: 650px;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 25px;
+    width: 100%;
+    display: grid;
+    row-gap: 1rem;
+    background-color: #fff;
+    
+}
+
+.contact__container{
+    color: #fff;
+    padding-top: 15rem;
+}
+
+.contact-form input, .contact-form textarea{
+    outline: auto;
+    font-size: 0.9rem;
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    background: whitesmoke;
+    border-radius: 0.4rem;
+}
+
+.contact-form .send-btn{
+    width: 120px;
+    color: #000000;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    background: whitesmoke;
+    cursor: pointer;
+}
+
+.contact-form .send-btn:hover{
+    width: 120px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+    box-shadow: 10px 10px 5px rgba(92, 92, 92, 0.475) inset;
+    cursor: pointer;
+}
+
+.contact-form input:hover, .contact-form textarea:hover{
+    outline: auto;
+    font-size: 0.9rem;
+    padding: 15px;
+    color: rgb(0, 0, 0);
+    box-shadow: 10px 10px 5px rgba(92, 92, 92, 0.475) inset;
+    border-radius: 0.4rem;
+}
 
 /* footer */
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1100px;
-  }
-  
-  .footer-content p {
-    margin: 0;
-  }
-  
-  .footer-content ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .footer-content li {
-    margin: 0 10px;
-  }
-  
-  .footer-content a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column;
-    }
-    
-    .footer-content ul {
-      margin-top: 10px;
-    }
-  }
+
 
   /* vers le haut btn */
   

@@ -225,138 +225,210 @@
         </div>
     </section>
 
+    <!-- mail -->
+    <section class="contact__container" id="contact">
+        <h1>Contact</h1>
+        <form action="" class="contact-form" id="contact-form">
+            <input type="text" placeholder="Nom" class="name" required>
+            <input type="emaiil" name="" id="" placeholder="Adresse mail..." class="email" required>
+            <textarea name="" id="" cols="30" rows="10" placeholder="message..." class="message" required></textarea>
+            <input type="submit" value="Envoyer" class="send-btn">
+        </form>
+    </section>
+    
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript">
+            (function(){
+                emailjs.init("clzIOzQauq_8gmQpt");
+            })();
+        </script>
 
-    <!-- <footer>
-        <div class="footer-content">
-          <p>&copy; 2023 Tya Maziere. All rights reserved.</p>
-          <ul>
-            <li><a href="#">Accueil</a></li>
-            <li><a href="#">À propos</a></li>
-            <li><a href="#">Compétences</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-      </footer> -->
 
-      <button id="back-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
-      </button>
+    <!-- scroll up -->
 
-<script>
+    <button id="back-to-top">
+    <svg xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 24 24" 
+        fill="none" 
+        stroke="currentColor" 
+        stroke-width="3.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        class="feather feather-arrow-up">
+        <line x1="12" y1="19" x2="12" y2="5"></line>
+        <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+    </button>
 
-// accueil
+    <script>
 
-var TxtRotate = function(el, toRotate, period) {
-    this.toRotate = toRotate;
-    this.el = el;
-    this.loopNum = 0;
-    this.period = parseInt(period, 10) || 2000;
-    this.txt = '';
-    this.tick();
-    this.isDeleting = false;
+    // accueil
+
+    var TxtRotate = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+        };
+
+    TxtRotate.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+
+    if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+    var that = this;
+    var delta = 300 - Math.random() * 100;
+
+    if (this.isDeleting) { delta /= 2; }
+
+    if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+    }
+
+    setTimeout(function() {
+        that.tick();
+    }, delta);
     };
 
-TxtRotate.prototype.tick = function() {
-  var i = this.loopNum % this.toRotate.length;
-  var fullTxt = this.toRotate[i];
-
-  if (this.isDeleting) {
-    this.txt = fullTxt.substring(0, this.txt.length - 1);
-  } else {
-    this.txt = fullTxt.substring(0, this.txt.length + 1);
-  }
-
-  this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-
-  var that = this;
-  var delta = 300 - Math.random() * 100;
-
-  if (this.isDeleting) { delta /= 2; }
-
-  if (!this.isDeleting && this.txt === fullTxt) {
-    delta = this.period;
-    this.isDeleting = true;
-  } else if (this.isDeleting && this.txt === '') {
-    this.isDeleting = false;
-    this.loopNum++;
-    delta = 500;
-  }
-
-  setTimeout(function() {
-    that.tick();
-  }, delta);
-};
-
-window.onload = function() {
-  var elements = document.getElementsByClassName('txt-rotate');
-  for (var i=0; i<elements.length; i++) {
-    var toRotate = elements[i].getAttribute('data-rotate');
-    var period = elements[i].getAttribute('data-period');
-    if (toRotate) {
-      new TxtRotate(elements[i], JSON.parse(toRotate), period);
-    }
-  }
-  // INJECT CSS
-  var css = document.createElement("style");
-  css.type = "text/css";
-  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-  document.body.appendChild(css);
-};
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQSxNQUFBOztFQUFBLENBQUEsQ0FBRSxRQUFGLENBQVcsQ0FBQyxLQUFaLENBQWtCLFFBQUEsQ0FBQSxDQUFBO1dBQ2hCLEdBQUcsQ0FBQyxJQUFKLENBQUE7RUFEZ0IsQ0FBbEI7O0VBR0EsR0FBQSxHQUNFO0lBQUEsSUFBQSxFQUFNLG9DQUFOO0lBQ0EsS0FBQSxFQUFPLENBRFA7SUFFQSxLQUFBLEVBQU8sQ0FGUDtJQUdBLEtBQUEsRUFBTyxHQUhQO0lBSUEsU0FBQSxFQUFXLGdCQUpYO0lBTUEsSUFBQSxFQUFNLFFBQUEsQ0FBQSxDQUFBO01BQ0osSUFBQyxDQUFBLEtBQUQsR0FBUyxJQUFDLENBQUEsSUFBSSxDQUFDO2FBQ2YsSUFBQyxDQUFBLEtBQUQsQ0FBQTtJQUZJLENBTk47SUFVQSxLQUFBLEVBQU8sUUFBQSxDQUFBLENBQUE7TUFDTCxDQUFBLENBQUUsSUFBQyxDQUFBLFNBQUgsQ0FBYSxDQUFDLE1BQWQsQ0FBcUIsSUFBQyxDQUFBLElBQUksQ0FBQyxJQUFDLENBQUEsS0FBRixDQUExQjtNQUNBLElBQUcsSUFBQyxDQUFBLEtBQUQsR0FBUyxJQUFDLENBQUEsS0FBYjtRQUNFLElBQUMsQ0FBQSxLQUFEO2VBQ0EsTUFBTSxDQUFDLFVBQVAsQ0FBa0IsUUFBQSxDQUFBLENBQUE7aUJBQ2hCLEdBQUcsQ0FBQyxLQUFKLENBQUE7UUFEZ0IsQ0FBbEIsRUFFRSxJQUFDLENBQUEsS0FGSCxFQUZGOztJQUZLO0VBVlA7QUFKRiIsInNvdXJjZXNDb250ZW50IjpbIiQoZG9jdW1lbnQpLnJlYWR5IC0+XG4gIGFwcC5pbml0KClcbiAgXG5hcHAgPVxuICB0ZXh0OiBcIkhlbGxvIHN0cmFuZ2VyLiBIb3cgYXJlIHlvdSBkb2luZz9cIlxuICBpbmRleDogMFxuICBjaGFyczogMFxuICBzcGVlZDogMTAwXG4gIGNvbnRhaW5lcjogXCIudGV4dCAuY29udGVudFwiXG4gIFxuICBpbml0OiAtPlxuICAgIEBjaGFycyA9IEB0ZXh0Lmxlbmd0aFxuICAgIEB3cml0ZSgpXG4gICAgXG4gIHdyaXRlOiAtPlxuICAgICQoQGNvbnRhaW5lcikuYXBwZW5kIEB0ZXh0W0BpbmRleF1cbiAgICBpZiBAaW5kZXggPCBAY2hhcnNcbiAgICAgIEBpbmRleCsrXG4gICAgICB3aW5kb3cuc2V0VGltZW91dCAtPlxuICAgICAgICBhcHAud3JpdGUoKVxuICAgICAgLCBAc3BlZWQiXX0=
-//# sourceURL=coffeescript
-
-// a propos
-
-    var currentCard = 0; // Variable pour suivre la carte actuelle
-
-    function flipCard(button) {
-        var cardInner = button.closest('.card-inner');
-        if (currentCard === 0) {
-            cardInner.style.transform = 'rotateY(180deg)';
-            currentCard = 1; // On passe à la deuxième face
-        } else {
-            cardInner.style.transform = 'rotateY(0deg)';
-            currentCard = 0; // On retourne à la première face
+    window.onload = function() {
+    var elements = document.getElementsByClassName('txt-rotate');
+    for (var i=0; i<elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-rotate');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+        new TxtRotate(elements[i], JSON.parse(toRotate), period);
         }
     }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+    document.body.appendChild(css);
+    };
+    //# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiPGFub255bW91cz4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQSxNQUFBOztFQUFBLENBQUEsQ0FBRSxRQUFGLENBQVcsQ0FBQyxLQUFaLENBQWtCLFFBQUEsQ0FBQSxDQUFBO1dBQ2hCLEdBQUcsQ0FBQyxJQUFKLENBQUE7RUFEZ0IsQ0FBbEI7O0VBR0EsR0FBQSxHQUNFO0lBQUEsSUFBQSxFQUFNLG9DQUFOO0lBQ0EsS0FBQSxFQUFPLENBRFA7SUFFQSxLQUFBLEVBQU8sQ0FGUDtJQUdBLEtBQUEsRUFBTyxHQUhQO0lBSUEsU0FBQSxFQUFXLGdCQUpYO0lBTUEsSUFBQSxFQUFNLFFBQUEsQ0FBQSxDQUFBO01BQ0osSUFBQyxDQUFBLEtBQUQsR0FBUyxJQUFDLENBQUEsSUFBSSxDQUFDO2FBQ2YsSUFBQyxDQUFBLEtBQUQsQ0FBQTtJQUZJLENBTk47SUFVQSxLQUFBLEVBQU8sUUFBQSxDQUFBLENBQUE7TUFDTCxDQUFBLENBQUUsSUFBQyxDQUFBLFNBQUgsQ0FBYSxDQUFDLE1BQWQsQ0FBcUIsSUFBQyxDQUFBLElBQUksQ0FBQyxJQUFDLENBQUEsS0FBRixDQUExQjtNQUNBLElBQUcsSUFBQyxDQUFBLEtBQUQsR0FBUyxJQUFDLENBQUEsS0FBYjtRQUNFLElBQUMsQ0FBQSxLQUFEO2VBQ0EsTUFBTSxDQUFDLFVBQVAsQ0FBa0IsUUFBQSxDQUFBLENBQUE7aUJBQ2hCLEdBQUcsQ0FBQyxLQUFKLENBQUE7UUFEZ0IsQ0FBbEIsRUFFRSxJQUFDLENBQUEsS0FGSCxFQUZGOztJQUZLO0VBVlA7QUFKRiIsInNvdXJjZXNDb250ZW50IjpbIiQoZG9jdW1lbnQpLnJlYWR5IC0+XG4gIGFwcC5pbml0KClcbiAgXG5hcHAgPVxuICB0ZXh0OiBcIkhlbGxvIHN0cmFuZ2VyLiBIb3cgYXJlIHlvdSBkb2luZz9cIlxuICBpbmRleDogMFxuICBjaGFyczogMFxuICBzcGVlZDogMTAwXG4gIGNvbnRhaW5lcjogXCIudGV4dCAuY29udGVudFwiXG4gIFxuICBpbml0OiAtPlxuICAgIEBjaGFycyA9IEB0ZXh0Lmxlbmd0aFxuICAgIEB3cml0ZSgpXG4gICAgXG4gIHdyaXRlOiAtPlxuICAgICQoQGNvbnRhaW5lcikuYXBwZW5kIEB0ZXh0W0BpbmRleF1cbiAgICBpZiBAaW5kZXggPCBAY2hhcnNcbiAgICAgIEBpbmRleCsrXG4gICAgICB3aW5kb3cuc2V0VGltZW91dCAtPlxuICAgICAgICBhcHAud3JpdGUoKVxuICAgICAgLCBAc3BlZWQiXX0=
+    //# sourceURL=coffeescript
 
-    function redirectToAnotherPage1() {
-        // Replace the following line with the actual URL you want to redirect to
-        window.location.href = 'https://example.com';
-    }
+    // a propos
 
-    function redirectToAnotherPage2() {
-        // Replace the following line with the actual URL you want to redirect to
-        window.location.href = 'https://example.com';
-    }
+        var currentCard = 0; // Variable pour suivre la carte actuelle
+
+        function flipCard(button) {
+            var cardInner = button.closest('.card-inner');
+            if (currentCard === 0) {
+                cardInner.style.transform = 'rotateY(180deg)';
+                currentCard = 1; // On passe à la deuxième face
+            } else {
+                cardInner.style.transform = 'rotateY(0deg)';
+                currentCard = 0; // On retourne à la première face
+            }
+        }
+
+        function redirectToAnotherPage1() {
+            // Replace the following line with the actual URL you want to redirect to
+            window.location.href = 'https://example.com';
+        }
+
+        function redirectToAnotherPage2() {
+            // Replace the following line with the actual URL you want to redirect to
+            window.location.href = 'https://example.com';
+        }
 
 
 
-    // vers le haut
+        // vers le haut
 
-// Cache le bouton lorsque la page se charge
-document.getElementById("back-to-top").style.display = "none";
-
-// Affiche le bouton lorsque l'utilisateur fait défiler la page
-window.addEventListener("scroll", function () {
-  if (window.pageYOffset > 200) {
-    document.getElementById("back-to-top").style.display = "flex";
-  } else {
+    // Cache le bouton lorsque la page se charge
     document.getElementById("back-to-top").style.display = "none";
-  }
-});
 
-// Scroll vers le haut de la page lorsque l'utilisateur clique sur le bouton
-document.getElementById("back-to-top").addEventListener("click", function (e) {
-  e.preventDefault();
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+    // Affiche le bouton lorsque l'utilisateur fait défiler la page
+    window.addEventListener("scroll", function () {
+    if (window.pageYOffset > 200) {
+        document.getElementById("back-to-top").style.display = "flex";
+    } else {
+        document.getElementById("back-to-top").style.display = "none";
+    }
+    });
 
-</script>
+    // Scroll vers le haut de la page lorsque l'utilisateur clique sur le bouton
+    document.getElementById("back-to-top").addEventListener("click", function (e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+    });
+    });
+
+
+
+
+    // mail
+
+    function validate() {
+        let name = document.querySelector('')
+    }
+
+    // email
+
+    function validate() {
+        let name = document.querySelector('.name');
+        let email = document.querySelector('.email');
+        let msg = document.querySelector('.message');
+        let sendBtn = document.querySelector('.send-btn');
+
+        sendBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (name.value == "" || email.value == "" || msg.value == "") {
+            emptyerror();
+            } else {
+                sendmail(name.value, email.value, msg.value);
+                success();
+            }
+        });
+    }
+
+    validate();
+
+    function sendmail(name,email,msg){
+        emailjs.send("service_r0aq5m8","template_n82qu3a",{
+            from_name: email,
+            to_name: name,
+            message: msg,
+            });
+    }
+
+    function emptyerror() {
+        swal({
+            title: "oh non...!",
+            text: "vous devez remplir tous les champs",
+            icon: "error",
+        });
+    }
+
+    function success() {
+        swal({
+            title: "Succés",
+            text: "Le message à bien été reçu",
+            icon: "success",
+        });
+    }
+
+    </script>
     
 </body>
 </html>

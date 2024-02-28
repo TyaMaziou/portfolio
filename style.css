@@ -29,12 +29,17 @@ h1{
     font-size: 6rem;
 }
 
-#apropos, #accueil, #skills{
+#apropos, #accueil, #skills, #portfolio{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+
+}
+
+section{
+    margin-top: 5rem;
 }
 
 /* header */
@@ -81,26 +86,30 @@ header a{
     font-size: 2em;
 }
   
-/* cartes */
+/* cartes a propos */
+
+.apropos{
+    margin-bottom: 5rem;
+}
 
 .images{
     border: 3px solid black;
     border-radius: 25px;
-    width: 450px;
-    height: 380px;
+    width: 550px;
+    height: 500px;
 }
 
 .images img{
-    border-radius: 25px;
-    width: 450px;
-    height: 380px;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 .texte{
     border: 3px solid black;
     border-radius: 25px;
-    width: 450px;
-    height: 430px;
+    width: 550px;
+    height: 560px;
 }
 
 .texte p{
@@ -118,88 +127,8 @@ header a{
 .card {
     perspective: 1000px;
     margin-left: 5rem;
-    width: 500px;
-    height: 500px;
-}
-
-.card-inner {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-}
-
-
-.face {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid black;
-    border-radius: 25px;
-    background-color: white;
-}
-
-.back {
-    transform: rotateY(180deg);
-}
-
-.btn {
-    margin-top: 10px;
-    cursor: pointer;
-    padding: 8px 16px;
-    background-color: #000000;
-    color: white;
-    border: none;
-    box-shadow: 0px 4px 2px 2px rgba(0, 0, 0, 0.25); 
-    border: 3px solid black;
-    border-radius: 6%;
-}
-
-
-/* cartes a propos*/
-
-.images{
-    border: 3px solid black;
-    border-radius: 25px;
-    width: 450px;
-    height: 380px;
-}
-
-.images img{
-    border-radius: 25px;
-    width: 450px;
-    height: 380px;
-}
-
-.texte{
-    border: 3px solid black;
-    border-radius: 25px;
-    width: 450px;
-    height: 430px;
-}
-
-.texte p{
-    margin-right: 20px;
-    margin-left: 20px;
-}
-
-.card-container {
-    margin-top: 5rem;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-.card {
-    perspective: 1000px;
-    margin-left: 5rem;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 650px;
 }
 
 .card-inner {
@@ -250,9 +179,10 @@ header a{
 }
 
 .images-skill img{
-    border-radius: 25px;
+    border-radius: 20px;
     width: 350px;
     height: 580px;
+    filter: blur(2px);
 }
 
 .cardskill{

@@ -15,6 +15,7 @@ h1{
     justify-content: center;
     align-items: center;
     font-size: 6rem;
+    padding-bottom: 4rem;
 }
 
 #apropos, #accueil, #skills, #portfolio{
@@ -36,7 +37,6 @@ nav{
 
 header {
    font-size: 2rem;
-   padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,6 @@ header a{
 /* accueil */
 
 .accueil{
-    margin-top: 15rem;
     margin-bottom: 25rem;
     justify-content: center;
     align-items: center;
@@ -159,25 +158,22 @@ header a{
 .images-skill{
     border: 3px solid black;
     border-radius: 25px;
-    width: 350px;
-    height: 580px;
-    
+    width: 320px;
+    height: 420px;
 }
-
 
 .images-skill img{
     border-radius: 20px;
-    width: 350px;
-    height: 580px;
+    width: 320px;
+    height: 420px;
     filter: brightness(50%);
-
 }
 
 .cardskill{
     perspective: 1000px;
     margin-left: 5rem;
-    width: 400px;
-    height: 650px;
+    width: 350px;
+    height: 500px;
 }
 
 .card-inner-skill{
@@ -210,22 +206,22 @@ header a{
 .images-portfolio{
     border: 3px solid black;
     border-radius: 25px;
-    width: 330px;
-    height: 330px;
+    width: 320px;
+    height: 332px;
 }
 
 .images-portfolio img{
     border-radius: 20px;
-    width: 330px;
-    height: 330px;
+    width: 320px;
+    height: 332px;
     filter: brightness(50%);
 }
 
 .cardportfolio{
     perspective: 1000px;
     margin-left: 5rem;
-    width: 380px;
-    height: 400px;
+    width: 350px;
+    height: 420px;
 }
 
 .card-inner-portfolio{
@@ -275,7 +271,7 @@ header a{
     width: 100%;
     display: grid;
     row-gap: 1rem;
-    background-color: #fff;
+    background-color: rgba(220, 220, 220, 0.926);
     
 }
 
@@ -301,7 +297,7 @@ header a{
     font-weight: 500;
     text-transform: uppercase;
     padding: 12px;
-    background: whitesmoke;
+    background-color: whitesmoke;
     cursor: pointer;
 }
 

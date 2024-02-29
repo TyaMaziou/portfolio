@@ -28,7 +28,7 @@
             <span
                class="txt-rotate"
                data-period="2000"
-               data-rotate='[ "Portfolio ...", "Projects ...", "Arts ...", "Adventures ..." ]'>
+               data-rotate='[ " Portfolio ...", "Projects ...", "Arts ...", "Adventures ..." ]'>
             </span>
         </h1>
 
@@ -66,8 +66,6 @@
                                     <br><br>
                                     Je suis déterminée à <b>réaliser tous mes rêves et à explorer toutes mes passions</b>  tout en poursuivant une carrière enrichissante dans le domaine de la technologie. 
                                     <br>Merci de prendre le temps de parcourir mon portfolio, et n'hésitez pas à me contacter si vous souhaitez en savoir plus sur mes compétences et mes projets.
-
-
                                 </p>
                             </div>
                             <div class="buttons">
@@ -82,22 +80,18 @@
                     <div class="card-inner">
                         <div class="face">
                             <div class="images">
-                                <img src="your-image-url.jpg" alt="Travel Image">
+                                <img src="imgs/fond.jpg" alt="Travel Image">
                             </div>
-                            <p>Travel in my world</p>
+                            <p>Voyage dans mon monde</p>
                             <button class="btn" onclick="flipCard(this)">Continue...</button>
                         </div>
                         <div class="face back">
                             <div class="texte">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum enim libero praesentium, explicabo, maiores recusandae molestias, nostrum nemo suscipit eum in. Harum velit cum quidem, fugit exercitationem beatae illo veniam.
-                                    <br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente dignissimos laborum nesciunt veniam voluptas, sequi fuga sunt suscipit dolor tempore ab praesentium minima voluptatibus saepe? Blanditiis aliquid molestias velit repellat?
-                                    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi tempora id similique fugit ut omnis facilis distinctio corrupti, reiciendis, ipsam quis aliquam rerum non perspiciatis accusantium reprehenderit, officiis doloremque tenetur.
-
-                                </p>
+                               
                             </div>
                             <div class="buttons">
                                 <button class="btn" onclick="flipCard(this)"> <- retour </button>
-                                <button class="btn" onclick="redirectToAnotherPage2()">Go to Another Page</button>
+                                <button class="btn"> <a class="btn"href="index.html#Competences">En savoir +</a></button>
                             </div>
                         </div>
                     </div>
@@ -155,7 +149,18 @@
                     <div class="card-inner-portfolio">
                         <div class="face">
                             <div class="images-portfolio">
-                            <img src="imgs/dev.jpg" alt="portfolio 1"> 
+                            <img src="imgs/IT.jpg" alt="portfolio 1"> 
+                            <div class="text-overlay">Innovations technologiques </div>
+                            </div>
+                            <a href=""><button class="btn" >Découvrir</button></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cardportfolio">
+                    <div class="card-inner-portfolio">
+                        <div class="face">
+                            <div class="images-portfolio">
+                            <img src="imgs/dev.jpg" alt="portfolio 2">
                             <div class="text-overlay">Développement Web</div>
                             </div>
                             <a href=""><button class="btn" >Découvrir</button></a>
@@ -166,19 +171,8 @@
                     <div class="card-inner-portfolio">
                         <div class="face">
                             <div class="images-portfolio">
-                            <img src="imgs/design.jpg" alt="portfolio 2">
+                            <img src="imgs/design.jpg" alt="portfolio 3">
                             <div class="text-overlay">Design</div>
-                            </div>
-                            <a href=""><button class="btn" >Découvrir</button></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cardportfolio">
-                    <div class="card-inner-portfolio">
-                        <div class="face">
-                            <div class="images-portfolio">
-                            <img src="imgs/oraga.jpg" alt="portfolio 3">
-                            <div class="text-overlay">Autres</div>
                             </div>
                             <a href=""><button class="btn" >Découvrir</button></a>
                         </div>
@@ -191,8 +185,8 @@
                     <div class="card-inner-portfolio">
                         <div class="face">
                             <div class="images-portfolio">
-                            <img src="imgs/dev.jpg" alt="portfolio 1"> 
-                            <div class="text-overlay">Développement Web</div>
+                            <img src="imgs/coockie.jpg" alt="portfolio 1"> 
+                            <div class="text-overlay">Photos</div>
                             </div>
                             <a href=""><button class="btn" >Découvrir</button></a>
                         </div>
@@ -202,8 +196,9 @@
                     <div class="card-inner-portfolio">
                         <div class="face">
                             <div class="images-portfolio">
-                            <img src="imgs/design.jpg" alt="portfolio 2">
-                            <div class="text-overlay">Design</div>
+                            <img src="imgs/cyber.jpg" alt="portfolio 2">
+                            <div class="text-overlay">
+                                Cybersécurité</div>
                             </div>
                             <a href=""><button class="btn" >Découvrir</button></a>
                         </div>
@@ -213,8 +208,8 @@
                     <div class="card-inner-portfolio">
                         <div class="face">
                             <div class="images-portfolio">
-                            <img src="imgs/oraga.jpg" alt="portfolio 3">
-                            <div class="text-overlay">Autres</div>
+                            <img src="imgs/avenir.jpg" alt="portfolio 3">
+                            <div class="text-overlay">Futurs projets</div>
                             </div>
                             <a href=""><button class="btn" >Découvrir</button></a>
                         </div>
@@ -235,7 +230,7 @@
             <input type="submit" value="Envoyer" class="send-btn">
         </form>
     </section>
-    
+
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript">

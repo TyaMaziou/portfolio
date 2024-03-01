@@ -32,7 +32,7 @@ h1{
 nav{
     position: fixed;
     z-index: 2;
-    background-color: #46464639;
+    background-color: rgba(255, 255, 255, 0.224)
 }
 
 header {
@@ -74,31 +74,32 @@ header a{
 
 .apropos{
     margin-bottom: 5rem;
+    
 }
 
 .images{
     border: 3px solid black;
     border-radius: 25px;
     width: 550px;
-    height: 500px;
+    height: 550px;
 }
 
 .images img{
     border-radius: 20px;
-    width: 100%;
-    height: 100%;
+    width: 550px;
+    height: 550px;
 }
 
 .texte{
     border: 3px solid black;
     border-radius: 25px;
     width: 550px;
-    height: 560px;
+    height: 500px;
 }
 
 .texte p{
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .card-container {
@@ -355,3 +356,29 @@ header a{
   body.home.scrolled #back-to-top {
     opacity: 1;
   }
+
+
+
+  /* CSS existant */
+
+/* Ajoutez les règles CSS spécifiques aux écrans de taille moyenne ici */
+@media only screen and (max-width: 768px) {
+    /* Exemple: Réduire la taille de la police pour les écrans de taille moyenne */
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Ajoutez les règles CSS spécifiques aux petits écrans ici */
+@media only screen and (max-width: 480px) {
+    /* Exemple: Réduire la taille de la police pour les petits écrans */
+    h1 {
+        font-size: 3rem;
+    }
+
+    /* Exemple: Réduire la taille des images pour les petits écrans */
+    .images {
+        width: 300px;
+        height: 300px;
+    }
+}

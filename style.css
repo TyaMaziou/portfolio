@@ -9,6 +9,10 @@ body {
     background-size: cover;
 }
 
+a{
+    text-decoration: none;
+}
+
 h1{
     color: #ffffff;
     display: flex;
@@ -18,43 +22,130 @@ h1{
     padding-bottom: 4rem;
 }
 
-#apropos, #accueil, #skills, #portfolio{
+#apropos, #skills, #portfolio{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+
 }
 
 
-/* header */
+/* header source : https://codepen.io/alvarotrigo/pen/PoJGObg */
 
-nav{
-    position: fixed;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.224)
-}
 
-header {
-   font-size: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px; 
-}
+.toggler{
+      z-index:3;
+      height: 5rem;
+      width: 3rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      opacity: 0;
+  }
+  
+  .hamburger{
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5rem;
+      width: 3rem;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      
+  }
+  
+  .hamburger > div{
+      position: relative;
+      top: 0;
+      left: 0;
+      background: white;
+      height: 0.2rem;
+      width: 100%;
+      transition: all  0.4s ease;
 
-header a{
-   color: aliceblue;
-   text-decoration: none;
-   font-size: 2rem;
-   padding: 1rem;
-   
-}
+  }
+
+  .hamburger > div::before,
+  .hamburger > div::after{
+      content: '';
+      position: absolute;
+      top: -20px;
+      background: white;
+      width: 100%;
+      height: 0.2rem;
+      transition: all  0.4s ease;
+  }
+  
+  .hamburger > div::after{
+      top: 20px;
+  }
+  .toggler:checked + .hamburger > div{
+      background: rgba(0,0,0,0);
+  }
+  
+  .toggler:checked + .hamburger > div::before{
+      top: 0;
+      transform: rotate(45deg);
+      background: black;
+  }
+  
+  .toggler:checked + .hamburger > div::after{
+      top: 0;
+      transform: rotate(135deg);
+      background: black;
+  }
+  .menu{
+      background: white;
+      height: 400vh;
+      transition: all 0.4s ease;
+      position: fixed;
+      margin-top: -20rem;
+  }
+  
+  .toggler:checked ~ .menu{
+      width: 20%;
+      
+      position: fixed;
+      z-index: 1;
+  }
+  
+  .menu >  div > ul{
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 7rem;
+      padding-left: 10px;
+      visibility: hidden;
+  }
+  
+  .menu > div > ul > li{
+      list-style: none;
+      padding: 0.5rem;
+  }
+  
+  .menu > div > ul > li > a{
+      color: black;
+      text-decoration: none;
+      font-size: 2.5rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .toggler:checked ~ .menu > div > ul{
+      transition: visibility 0.4s ease;
+      transition-delay: 0.1s;
+      visibility: visible;
+  }
 
 /* accueil */
 
 .accueil{
-    margin-bottom: 25rem;
+    margin-top: 20rem;
+    margin-bottom: 15rem;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -65,11 +156,6 @@ header a{
     color: #ffffff;
 }
 
-.accueil  h2 {
-    color: #ffffff;
-    font-size: 2em;
-}
-  
 /* cartes a propos */
 
 .apropos{
@@ -109,11 +195,14 @@ header a{
     width: 100%;
 }
 
+
 .card {
     perspective: 1000px;
-    margin-left: 5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     width: 600px;
     height: 650px;
+    justify-content: space-between;
 }
 
 .card-inner {
@@ -172,9 +261,10 @@ header a{
 
 .cardskill{
     perspective: 1000px;
-    margin-left: 5rem;
     width: 350px;
     height: 500px;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 .card-inner-skill{
@@ -195,8 +285,6 @@ header a{
     text-align: center;
     width: 100%;
   }
-
-/* skills dev */
 
 /* portfolio */
 
@@ -220,7 +308,8 @@ header a{
 
 .cardportfolio{
     perspective: 1000px;
-    margin-left: 5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
     width: 350px;
     height: 420px;
 }
@@ -322,10 +411,6 @@ header a{
     border-radius: 0.4rem;
 }
 
-/* footer */
-
-
-
   /* vers le haut btn */
   
   #back-to-top {
@@ -358,27 +443,3 @@ header a{
   }
 
 
-
-  /* CSS existant */
-
-/* Ajoutez les règles CSS spécifiques aux écrans de taille moyenne ici */
-@media only screen and (max-width: 768px) {
-    /* Exemple: Réduire la taille de la police pour les écrans de taille moyenne */
-    h1 {
-        font-size: 4rem;
-    }
-}
-
-/* Ajoutez les règles CSS spécifiques aux petits écrans ici */
-@media only screen and (max-width: 480px) {
-    /* Exemple: Réduire la taille de la police pour les petits écrans */
-    h1 {
-        font-size: 3rem;
-    }
-
-    /* Exemple: Réduire la taille des images pour les petits écrans */
-    .images {
-        width: 300px;
-        height: 300px;
-    }
-}

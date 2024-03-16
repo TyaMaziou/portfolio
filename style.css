@@ -183,14 +183,16 @@ h1{
     height: 500px;
 }
 
+.texte b{
+  color: #000;
+}
+
 .texte p{
     margin-right: 10px;
     margin-left: 10px;
 }
 
-b{
-  color: #000;
-}
+
 .card-container {
     margin-top: 5rem;
     display: flex;

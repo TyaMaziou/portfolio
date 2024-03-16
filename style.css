@@ -22,7 +22,7 @@ h1{
     padding-bottom: 4rem;
 }
 
-#apropos, #skills, #portfolio{
+#apropos, #skills, #portfolio, #projects{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -782,8 +782,58 @@ h1{
     .single-social{
       font-size: 1.3rem;
     }
-    
-    
     }
+
+    /* .portfolio */
     
-    /* fin footer */
+    .projects {
+      justify-content: center;
+      align-items: center;
+      display: grid;
+      grid: auto-flow;
+      gap: 20px;
+      padding-top: 7rem;
+      margin-bottom: 5rem;
+      
+  }
+
+  .project {
+      background-color: #f0f0f0;
+      margin-left: 15rem;
+      margin-right: 15rem;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      
+  }
+  
+  .project:hover {
+    transform: translateY(-10px);
+  }
+
+  .project img {
+      border: 2px solid black;
+      width: 180px;
+      height: auto;
+      margin-right: 20px;
+      border-radius: 10px;
+  }
+
+  .project-info {
+      flex: 1;
+  }
+
+  .project h2 {
+      margin-top: 0;
+      margin-bottom: 10px;
+  }
+
+  .project p {
+      margin-bottom: 10px;
+  }
+  
+
+

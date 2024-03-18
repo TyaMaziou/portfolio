@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&family=Poppins:wght@600&family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,700;1,8..144,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&family=Poppins:wght@300&family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,700;1,8..144,100&display=swap');
 
 html {
     scroll-behavior: smooth;
@@ -510,11 +510,12 @@ h1, h2, h3, p{
 /* footer */
 
   .footer{
-    background-color: rgba(220, 220, 220, 0.926);
-  padding:30px 0px;
+  background-color: rgba(220, 220, 220, 0.926);
+  padding: 30px 0px;
   font-family: 'Play', sans-serif;
   text-align:center;
   border-radius: 15px;
+  margin-top: 10rem;
   }
   
   .footer .row{

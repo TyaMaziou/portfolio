@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi&family=Poppins:wght@600&family=Roboto+Serif:ital,opsz,wght@0,8..144,200;0,8..144,300;0,8..144,400;0,8..144,500;0,8..144,700;1,8..144,100&display=swap');
+
 html {
     scroll-behavior: smooth;
   }
@@ -30,6 +32,10 @@ h1{
 
 }
 
+
+h1, h2, h3, p{
+    font-family: Poppins;
+}
 
 /* header source : https://codepen.io/alvarotrigo/pen/PoJGObg */
 
@@ -190,6 +196,7 @@ h1{
 .texte p{
     margin-right: 10px;
     margin-left: 10px;
+    font-size: 12.5px;
 }
 
 
